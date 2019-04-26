@@ -243,3 +243,42 @@ public class Demo04RandomGame {
 
 
 }
+
+ArrayListjihe
+{
+
+            * 数组长度不可随意改变，ArrayList大小可以随意改变
+            *对于 ArrayList<E>
+            E代表泛型，泛型也就是装载集合中的元素，全部都是统一什么类型
+            * 泛型只能是引用类型，不能是基本类型
+            *
+            * 注意：对于ArrayList直接打印，得到不是地址，是内容，如果为空，显示一个[]
+            *根据尖括号泛型内容确定添加类型元素；
+            * 从JDK1.7开始，右边尖括号里面内容可以不写，尖括号还要写  
+
+
+            * Arraylist常用方法
+            * public booolean(E e)向集合当中添加元素，参数类型与泛型一致
+            * 备注：对应ArrayList集合来说，添加集合元素，一定是成功的，所以返回值可用可不要
+            * 但是对于其他集合，add添加方法不一定成功
+            *
+            * public E get(int index);从集合当中获取元素，参数是索引编号，返回值是对应位置元素
+            * public E remove(int index);从集合当中删除元素，参数是索引编号，返回值就是那个被删除的元素
+            * public int size;获取集合尺寸长度，返回值是集合中包含元素个数
+            *
+格式
+{
+      ArrayList<String> list=new ArrayList<>();
+
+     向集合中添加数据
+       对象名称.add
+
+}
+自动装箱：基本类型->包装类型
+
+自动拆箱：包装类型->基本类型
+
+
+
+
+}
