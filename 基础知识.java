@@ -244,7 +244,7 @@ public class Demo04RandomGame {
 
 }
 
-ArrayListjihe
+ArrayList集合
 {
 
             * 数组长度不可随意改变，ArrayList大小可以随意改变
@@ -274,11 +274,66 @@ ArrayListjihe
        对象名称.add
 
 }
-自动装箱：基本类型->包装类型
 
-自动拆箱：包装类型->基本类型
+添加基本数据类型
+
+        * 如果希望向ArrayList集合添加基本类型，需要使用基本类型的包装类
+        * 基本类型 包装类（基本类型，包装类都为与java.lang包下
+        * byte      Byte
+        * int       Integer
+        * long      Long
+        * short     Short
+        * double    Double
+        * float      Float
+        * char      Character
+        * boolean   Boolean
+        *
+        *
+        自动装箱：基本类型->包装类型
+
+        自动拆箱：包装类型->基本类型
 
 
+案例
+        {
+            * 生成6个1—33的随机整数，添加到集合，并遍历集合
+        *
+        *
+        *思路：
+        * 1.循环存储6个数字，创建一个集合（Integer）
+        * 2.产生随机数，需要用到random
+        * 用循环6次，来参数6个数字，for循环
+        * 循环内调用r.nextInt(int x)方法，参数33，范围0-32，整体加1
+        * 把数字添加到集合add
+        * 遍历集合，for，size，get
+        *
 
+        public class Demo01ArrayListRandom {
+         public static void main(String[] args) {
+        
+        ArrayList<Integer> list=new ArrayList<>();
+        Random r=new Random();
+        //产生6个随机数
+        for (int i = 0; i < 6; i++) {
+            int num=r.nextInt(33)+1;
+            list.add(num);
+        }
+        //遍历集合
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+
+}
+
+        }
+
+        遍历方式
+        {
+             for (int i = 0; i < list.size(); i++) {
+            Student stu=list.get(i);
+            System.out.println("姓名："+stu.getName()+"年龄："+stu.getAge());
+        }
+        }
 
 }
