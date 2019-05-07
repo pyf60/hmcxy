@@ -337,3 +337,151 @@ ArrayList集合
         }
 
 }
+
+字符串
+{
+            
+        java.lang.String
+        String 类代表字符串。Java 程序中的所有字符串字面值（如 "abc" ）都作为此类的实例实现。
+        其实就是说，程序当中的所有的双引号字符串，都是String类型，（就算没有new，都是String字符串）
+
+        字符串的特点：
+        1、字符串的内容不可改变
+        2、正是因为字符串不可改变，所以字符串可以共享使用
+        3、字符串效果上相当于char[]型字符数组，底层原理是byte[]型字节数组
+
+
+        创建字符串的常见3+1种方式
+        三种构造方法
+        public String(),创建一个空白字符串，不含有任何内容
+        public String（char[] array） 根据字符数组的内容，来创建指定的字符串
+        public String（byte[] array）根据字节数组的内容，来创建指定的字符串
+        1、一种直接创建
+        String Str="abc";
+        注意：直接写上双引号，就是一个字符串对象
+
+
+
+        * 字符串常量值，程序当中直接用双引号写上的字符串，就在字符串常量池中
+        * 对于基本常量来说，==就是进行【数值】的比较；
+        * 对于引用常量来说，==是进行【地址值】的比较；
+        * ==是对象地址值进行比较，如果确实需要字符串内容的比较，可以使用两个方法
+        * public boolean equals(Object obj)参数Object类型可以是任何对象，
+        * 只有参数是一个字符串并且内容相同才会给一个ture
+        *
+        * 注意事项：
+        * 任何对象都可以用Object进行接收
+        *equals方法中a.equals(b)和b.equals(a)效果一样
+        * 如果比较一个常量和一个变量，推荐把字符串写在前面，字符串使用双引号
+        *
+        * public boolean equals(str)//忽略大小写进行字符串的比较
+
+         String str5=null;
+        System.out.println("abc".equals(str5));//flase
+      //System.out.println(str5.equals("abc"));
+      //报错，是空指针(NullPointerException)，所以推荐字符串在前
+        
+
+//   下面这种写法，字符串的内容仍然是没有改变的
+        // 下面有两个字符串："Hello"，"Java"
+        // strA当中保存的是地址值。
+        // 本来地址值是Hello的0x666，
+        // 后来地址值变成了Java的0x999
+        String strA = "Hello";
+        System.out.println(strA); // Hello
+        strA = "Java";
+        System.out.println(strA); // Java
+
+    String当中与获取相关的常用方法有：
+
+    public int length()：获取字符串当中含有的字符个数，拿到字符串长度。
+    public String concat(String str)：将当前字符串和参数字符串拼接成为返回值新的字符串。
+    public char charAt(int index)：获取指定索引位置的单个字符。（索引从0开始。）
+    public int indexOf(String str)：查找参数字符串在本字符串当中首次出现的索引位置，如果没有返回-1值。
+
+实例：
+ public static void main(String[] args) {
+//        public int length()：获取字符串当中含有的字符个数，拿到字符串长度。
+        int length = "hkjsdhfksdhfksdhfls".length();
+        System.out.println(length);
+
+        //拼接字符串
+        String str="hello";
+        String str2="world";
+        String str3=str.concat(str2);
+//        字符串不可改变，只会新创建
+        System.out.println(str);//hello原封不动
+        System.out.println(str2);//world原封不动
+        System.out.println(str3);//helloworld,是新产生的字符串
+//      获取指定位置的单个字符
+        char e = "hello".charAt(1);
+        System.out.println(e);
+//        查找参数字符串在本来字符串第一次出现的索引未知
+//        如果根本没有返回值-1
+        String original="helloworld";
+        int index = original.indexOf("llo");
+        System.out.println("第一次出现索引"+index);//2
+        System.out.println(original.indexOf("kjh"));//没有-1
+
+    }
+
+
+            String当中与转换相关的常用方法有：
+
+        public char[] toCharArray()：将当前字符串拆分成为字符数组作为返回值。
+        public byte[] getBytes()：获得当前字符串底层的字节数组。
+        public String replace(CharSequence oldString, CharSequence newString)：
+        将所有出现的老字符串替换成为新的字符串，返回替换之后的结果新字符串。
+        备注：CharSequence意思就是说可以接受字符串类型。
+
+
+            
+        String当中与转换相关的常用方法有：
+
+        public char[] toCharArray()：将当前字符串拆分成为字符数组作为返回值。
+//转换为字符数组
+        char[] chars = "hello".toCharArray();
+        System.out.println(chars[0]);
+        System.out.println(chars.length);
+        System.out.println("===========");
+
+
+        public byte[] getBytes()：获得当前字符串底层的字节数组。
+        byte[] bytes = "abc".getBytes();
+                for (int i = 0; i < bytes.length; i++) {
+                    System.out.println(bytes[i]);
+                }
+                System.out.println("=========");
+        public String replace(CharSequence oldString, CharSequence newString)：
+                将所有出现的老字符串替换成为新的字符串，返回替换之后的结果新字符串。
+                备注：CharSequence意思就是说可以接受字符串类型。
+  //字符串的内容替换
+        String str1="how do you do";
+        String str2 = str1.replace("o", "e");
+        System.out.println(str1);
+        System.out.println(str2);
+
+
+        String lang1="会不会玩，你大爷的，，你大爷的，你大爷的，你大爷的，你大爷的";
+        String lang2=lang1.replace("大爷","**");
+        System.out.println(lang2);
+
+
+        字符串转换为单个字符
+        { 
+            Scanner sc=new Scanner(System.in);
+        System.out.print("清输入一个字符串：");
+        String input=sc.next();//获取一个字符串
+            char[] charArray = input.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char ch=charArray[i];//获取单个字符
+        }
+        }
+
+}
+
+static关键字
+{
+    /*如果一个成员变量使用static关键字，那么变量不再属于对象自己，
+    而是属于对象所在的类，多个对象共享一份数据*/
+}
